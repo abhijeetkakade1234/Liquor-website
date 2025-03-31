@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart UI</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <input type="text" id="searchBar" placeholder="Search items...">
+            <ul class="categories">
+                <li onclick="filterByCategory('All')">All</li>
+                <li onclick="filterByCategory('Whisky')">Whisky</li>
+                <li onclick="filterByCategory('Vodka')">Vodka</li>
+                <li onclick="filterByCategory('Gin')">Gin</li>
+                <li onclick="filterByCategory('Rum')">Rum</li>
+                <li onclick="filterByCategory('Brandy')">Brandy / Cognac</li>
+                <li onclick="filterByCategory('Beer')">Beer</li>
+                <li onclick="filterByCategory('Wine')">Wine</li>
+                <li><a href="checkout.html" class="checkout-link">Checkout</a></li>
+            </ul>
+        </aside>
+        
+        <main>
+            <div id="product-container" class="product-grid">
+                <!-- Products will be inserted dynamically here -->
+            </div>
+            <div class="pagination">
+                <button id="prevPage">&laquo; Prev</button>
+                <span id="pageNumber">1</span>
+                <button id="nextPage">Next &raquo;</button>
+            </div>
+        </main>
+    </div>
+    
+    <script src="cart_items.js"></script>
+</body>
+</html>
