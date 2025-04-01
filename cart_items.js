@@ -93,7 +93,7 @@ let filteredProducts = products;
 // Function to display products
 function displayProducts() {
     const productContainer = document.getElementById("product-container");
-    if (!productContainer) return; // Ensure element exists
+    if (!productContainer) return;
     productContainer.innerHTML = "";
 
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -103,12 +103,19 @@ function displayProducts() {
     paginatedProducts.forEach(product => {
         const productDiv = document.createElement("div");
         productDiv.classList.add("product");
+        
+        // Create elements separately for better control
+        const addButton = document.createElement("button");
+        addButton.classList.add("add-to-cart");
+        addButton.textContent = "Add to Cart";
+        addButton.addEventListener("click", () => addToCart(product.name, product.price));
+
         productDiv.innerHTML = `
             <img src="${product.img}" alt="${product.name}">
             <h3>${product.name}</h3>
             <p>₹ ${product.price}</p>
-            <button class="add-to-cart" onclick="addToCart('${product.name}', ${product.price})">Add to Cart</button>
         `;
+        productDiv.appendChild(addButton);
         productContainer.appendChild(productDiv);
     });
 
@@ -117,17 +124,32 @@ function displayProducts() {
 
 // Cart Management Functions
 function addToCart(name, price) {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    const existingItem = cart.find(item => item.name === name);
+    try {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        
+        // Clean the name string for comparison
+        const cleanName = name.replace(/[']/g, "\\'");
+        const existingItem = cart.find(item => item.name === name);
 
-    if (existingItem) {
-        existingItem.quantity += 1;
-    } else {
-        cart.push({ name, price, quantity: 1 });
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push({ 
+                name: name,  // Store original name
+                price: price,
+                quantity: 1 
+            });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+        
+        // Add visual feedback
+        // alert(`Added ${name} to cart`);
+    } catch (error) {
+        console.error("Error adding to cart:", error);
+        alert("Failed to add item to cart");
     }
-
-    localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartCount();
 }
 
 // Update cart count in navbar

@@ -25,13 +25,13 @@
     <p id="total-price">Total: ₹ 0</p>
     <button id="clear-cart">Clear Cart</button>
 
-    <script>
-        function loadCart() {
+    <script>function loadCart() {
+        try {
             const cartItems = document.getElementById("cart-items");
             const totalPriceElement = document.getElementById("total-price");
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
             cartItems.innerHTML = "";
-
+    
             let total = 0;
             cart.forEach((item, index) => {
                 total += item.price * item.quantity;
@@ -48,9 +48,13 @@
                     </tr>
                 `;
             });
-
+    
             totalPriceElement.innerText = `Total: ₹ ${total}`;
+        } catch (error) {
+            console.error("Error loading cart:", error);
+            alert("Failed to load cart items");
         }
+    }
 
         function updateQuantity(index, change) {
             let cart = JSON.parse(localStorage.getItem("cart")) || [];
