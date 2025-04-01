@@ -11,7 +11,7 @@ body {
 /* NAV SECTION */
 .nav-bar {
   background: white;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -260,7 +260,7 @@ nav {
     background: white;
     flex-direction: column;
     padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
   .nav-links.active {
@@ -372,18 +372,22 @@ nav {
 .cart-container {
   padding-top: 20px;
   display: flex;
-  flex-wrap: nowrap; /* Changed from wrap to nowrap to keep in one line */
+  flex-wrap: nowrap;
+  /* Changed from wrap to nowrap to keep in one line */
   justify-content: center;
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
-  overflow-x: auto; /* Allow horizontal scrolling if needed */
-  padding-bottom: 20px; /* Add padding for scroll bar */
+  overflow-x: auto;
+  /* Allow horizontal scrolling if needed */
+  padding-bottom: 20px;
+  /* Add padding for scroll bar */
 }
 
 .cart {
   width: 280px;
-  min-width: 280px; /* Added min-width to prevent shrinking */
+  min-width: 280px;
+  /* Added min-width to prevent shrinking */
   height: 350px;
   background-color: white;
   text-align: center;
@@ -1008,8 +1012,9 @@ nav {
   .about-div {
     flex-direction: column;
     padding: 0 20px;
+    align-items: center;
   }
-  
+
   .about-img {
     width: 100%;
     max-width: 400px;
@@ -1017,55 +1022,61 @@ nav {
     margin: 0 auto 30px;
     padding: 0;
   }
-  
+
   .cart-container {
     padding: 20px;
     gap: 20px;
     overflow-x: auto;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+    justify-content: flex-start;
+    scroll-padding: 20px;
+  }
+
+  .cart-container::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar for Chrome/Safari */
   }
 
   .cart {
     min-width: 250px;
     height: auto;
     padding: 20px 10px;
+    flex: 0 0 auto;
   }
-  
-  .about-img {
-    padding-left: 0;
-    margin-bottom: 30px;
-    width: 90%;
-    height: auto;
-  }
-  
+
   .about-p {
     padding-right: 0;
+    padding-top: 20px;
+    text-align: center;
   }
-  
+
   .steps-container {
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 0 20px;
   }
-  
+
   .container1 {
     flex-direction: column;
     gap: 50px;
+    align-items: center;
   }
-  
+
   .form {
     width: 100%;
     padding: 30px;
+    max-width: 600px;
   }
-  
+
   .images {
-    margin-left: 0;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 600px;
+    margin: 0 auto;
   }
-  
+
   .img1 {
     margin-left: 0;
-  }
-  
-  .region button, .whiskey button {
-    width: 180px;
   }
 }
 
@@ -1103,6 +1114,28 @@ nav {
     padding: 0 20px;
   }
 
+  .about-div {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .about-img {
+    padding-left: 0;
+    width: 80%;
+    height: auto;
+    max-width: 350px;
+    margin: 0 auto 30px;
+  }
+
+  .about-p {
+    padding-right: 0;
+    padding-top: 10px;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 90%;
+  }
+
   .form input,
   .form select,
   .form button {
@@ -1113,184 +1146,117 @@ nav {
   .steps-container {
     grid-template-columns: 1fr;
     padding: 0 20px;
+    gap: 30px;
+    width: 90%;
+    margin: 0 auto;
   }
 
   .images {
     grid-template-columns: 1fr;
     gap: 15px;
+    max-width: 90%;
+    margin: 0 auto;
   }
 
-  .region button,
-  .whiskey button,
-  .step a {
-    min-height: 44px;
-    width: 100%;
-    max-width: 280px;
+  .img1,
+  .img2 {
     margin: 10px auto;
-  }
-  
-  .nav-bar {
-    flex-direction: column;
-    padding: 10px;
-    height: auto;
-  }
-
-  .steps-container {
-    grid-template-columns: 1fr;
-  }
-  
-  .nav-links {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-  
-  .nav-links a {
-    margin-bottom: 10px;
-    text-align: center;
-    width: 100%;
-  }
-  
-  .logo {
-    padding-right: 0;
-    margin: 10px 0;
-  }
-  
-  .region-div, .Whiskey-div {
-    width: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  
-  .region p, .whiskey p {
-    font-size: 36px;
-  }
-  
-  .region h1, .whiskey h1 {
-    font-size: 24px;
-  }
-  
-  .footer-right {
-    flex-direction: column;
-  }
-  
-  .region button, .whiskey button {
-    width: 100%;
-    max-width: 200px;
-  }
-  
-  .whiskey ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .cart-container {
-    flex-wrap: wrap;
-    overflow-x: visible;
   }
 }
 
 @media (max-width: 480px) {
-  body {
-    font-size: 16px;
-  }
-
   .nav-bar {
     padding: 10px;
   }
 
-  .logo {
-    width: 100px;
+  .nav-links a {
+    padding: 10px;
+    font-size: 14px;
   }
 
   .cart-container {
+    gap: 15px;
     padding: 10px;
   }
 
   .cart {
-    min-width: 100%;
-  }
-
-  .cart-img {
-    height: 150px;
-    width: 150px;
-  }
-
-  .footer-section {
-    padding: 40px 20px;
-    gap: 30px;
-  }
-
-  .footer-left,
-  .footer-right {
-    min-width: 100%;
-  }
-
-  .footer-icons {
-    justify-content: center;
-  }
-
-  .form {
+    width: 100%;
+    min-width: auto;
+    height: auto;
     padding: 15px;
   }
 
-  .region-img,
-  .whiskey img {
-    height: 60vh;
-  }
-
-  .region p,
-  .whiskey p {
-    font-size: 24px;
-  }
-
-  .region h1,
-  .whiskey h1 {
-    font-size: 18px;
-  }
-  
-  .region p, .whiskey p {
+  .about-us h1,
+  .liquor-store h1,
+  .bartender h3,
+  .how-it-works h2 {
     font-size: 28px;
-  }
-  
-  .region h1, .whiskey h1 {
-    font-size: 20px;
-  }
-  
-  .form {
-    padding: 20px;
-  }
-  
-  .form button {
-    padding: 12px;
-  }
-  
-  .about-us h1, .liquor-store h1, .bartender h3, .how-it-works h2 {
-    font-size: 32px;
-  }
-  
-  .step a {
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 0;
   }
 }
 
-/* Add smooth scrolling for all devices */
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
+.about-us h3,
+.about-p {
+  font-size: 16px;
 }
 
-/* Add touch-friendly improvements */
-* {
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
+.region p {
+  font-size: 40px;
 }
 
-/* Improve form elements on mobile */
-input,
-select,
-button {
-  -webkit-appearance: none;
-  border-radius: 0;
+.region h1 {
+  font-size: 28px;
 }
+
+.whiskey p {
+  font-size: 40px;
+}
+
+.whiskey h1 {
+  font-size: 28px;
+}
+
+.footer-section {
+  padding: 40px 20px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-left,
+.footer-right {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.footer-left h3,
+.footer-right h3 {
+  font-size: 24px;
+}
+
+.footer-left p,
+.footer-right p {
+  font-size: 14px;
+}
+
+.footer-links a {
+  font-size: 14px;
+}
+
+.footer-icons a {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+}
+
+.footer p {
+  font-size: 12px;
+}
+
+.designer {
+  font-size: 12px;
+}
+
+/* Add this to the end of your CSS file */
