@@ -1240,4 +1240,109 @@ nav {
   font-size: 12px;
 }
 
-/* Add this to the end of your CSS file */
+/* CONTACT SECTION */
+.contact-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+}
+
+.contact-intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact-title {
+  font-size: 42px;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+}
+
+.contact-description {
+  color: #666;
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group:last-child {
+  grid-column: span 2;
+}
+
+.form-label {
+  margin-bottom: 8px;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.form-input,
+.form-textarea {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-textarea {
+  height: 150px;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #e6b980;
+}
+
+.form-submit {
+  background-color: #1a1a1a;
+  color: white;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.form-submit:hover {
+  background-color: #e6b980;
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .form-group-container {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group:last-child {
+    grid-column: span 1;
+  }
+
+  .contact-section {
+    padding: 40px 20px;
+  }
+
+  .contact-title {
+    font-size: 32px;
+  }
+}
